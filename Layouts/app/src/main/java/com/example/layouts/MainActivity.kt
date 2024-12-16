@@ -2,12 +2,16 @@ package com.example.layouts
 
 import android.graphics.Color
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RadioButton
+import android.widget.Spinner
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -15,7 +19,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
 //    lateinit var myText : TextView
 //    lateinit var doMagic: Button
@@ -30,11 +34,14 @@ class MainActivity : AppCompatActivity() {
 //    lateinit var female:CheckBox
 //    lateinit var result: TextView
 
-    lateinit var linearLayout: LinearLayout
-    lateinit var green : RadioButton
-    lateinit var red : RadioButton
-    lateinit var yellow : RadioButton
-    lateinit var change: Button
+//    lateinit var linearLayout: LinearLayout
+//    lateinit var green : RadioButton
+//    lateinit var red : RadioButton
+//    lateinit var yellow : RadioButton
+//    lateinit var change: Button
+
+    lateinit var spinner: Spinner
+    lateinit var result: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,21 +53,31 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        linearLayout = findViewById(R.id.main)
-        green = findViewById(R.id.green)
-        red = findViewById(R.id.red)
-        yellow = findViewById(R.id.yellow)
-        change = findViewById(R.id.btn)
+        spinner = findViewById(R.id.spinnerCountry)
+        result = findViewById(R.id.textView)
 
-        change.setOnClickListener() {
-            if (green.isChecked) {
-                linearLayout.setBackgroundColor(Color.GREEN)
-            } else if (red.isChecked) {
-                linearLayout.setBackgroundColor(Color.RED)
-            } else if (yellow.isChecked) {
-                linearLayout.setBackgroundColor(Color.YELLOW)
-            }
-        }
+        spinner.onItemSelectedListener = this
+        var arrayAdapter = ArrayAdapter.createFromResource(this, R.array.contries, android.R.layout.simple_spinner_item)
+
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = arrayAdapter
+
+
+//        linearLayout = findViewById(R.id.main)
+//        green = findViewById(R.id.green)
+//        red = findViewById(R.id.red)
+//        yellow = findViewById(R.id.yellow)
+//        change = findViewById(R.id.btn)
+//
+//        change.setOnClickListener() {
+//            if (green.isChecked) {
+//                linearLayout.setBackgroundColor(Color.GREEN)
+//            } else if (red.isChecked) {
+//                linearLayout.setBackgroundColor(Color.RED)
+//            } else if (yellow.isChecked) {
+//                linearLayout.setBackgroundColor(Color.YELLOW)
+//            }
+//        }
 
 //        male = findViewById(R.id.checkBox2)
 //        female = findViewById(R.id.checkBox1)
@@ -119,5 +136,16 @@ class MainActivity : AppCompatActivity() {
 //            myText.isVisible = true
 //            doMagic.isVisible = true
 //        }
+    }
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        if (parent != null) {
+            result.text = parent.getItemAtPosition(position).toString()
+        }
+
+    }
+
+    override fun onNothingSelected(p0: AdapterView<*>?) {
+        TODO("Not yet implemented")
     }
 }

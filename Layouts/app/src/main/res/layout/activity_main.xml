@@ -6,52 +6,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerHorizontal="false"
-    android:background="@android:color/holo_blue_bright"
+    android:background="@android:color/white"
+    android:gravity="center_horizontal|center_vertical"
     android:orientation="vertical"
-    android:gravity="center_horizontal"
     tools:context=".MainActivity">
 
-    <RadioGroup
+
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="175dp">
+        android:text="TextView" />
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Green"
-            android:textSize="20dp"
-            android:textColor="@color/white"
-            android:layout_marginTop="5dp"
-            android:checked="true"
-            android:id="@+id/green"
-            />
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Yellow"
-            android:textSize="20dp"
-            android:textColor="@color/white"
-            android:layout_marginTop="5dp"
-            android:id="@+id/yellow"/>
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Red"
-            android:textSize="20dp"
-            android:textColor="@color/white"
-            android:layout_marginTop="5dp"
-            android:id="@+id/red"/>
-    </RadioGroup>
-    <Button
+    <Spinner
+        android:id="@+id/spinnerCountry"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Change Color"
-        android:textAllCaps="false"
-        android:textSize="20dp"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/material_dynamic_neutral20"
-        android:layout_marginTop="50dp"
-        android:id="@+id/btn"/>
-
+        android:layout_height="wrap_content" />
 </LinearLayout>
