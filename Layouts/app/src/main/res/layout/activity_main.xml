@@ -12,6 +12,13 @@
     tools:context=".MainActivity">
 
 
+    <ImageView
+        android:id="@+id/imageFox"
+        android:layout_width="300dp"
+        android:layout_height="265dp"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/cutty_fox" />
+
     <EditText
         android:id="@+id/editTextName"
         android:layout_width="300dp"
