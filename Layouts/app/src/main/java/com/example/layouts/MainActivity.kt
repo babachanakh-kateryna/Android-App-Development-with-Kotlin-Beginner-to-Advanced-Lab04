@@ -6,6 +6,8 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.RadioButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -23,10 +25,16 @@ class MainActivity : AppCompatActivity() {
 //    lateinit var ok:Button
 //    lateinit var result:TextView
 //    lateinit var image: ImageView
+//
+//    lateinit var male:CheckBox
+//    lateinit var female:CheckBox
+//    lateinit var result: TextView
 
-    lateinit var male:CheckBox
-    lateinit var female:CheckBox
-    lateinit var result: TextView
+    lateinit var linearLayout: LinearLayout
+    lateinit var green : RadioButton
+    lateinit var red : RadioButton
+    lateinit var yellow : RadioButton
+    lateinit var change: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,27 +45,44 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        male = findViewById(R.id.checkBox2)
-        female = findViewById(R.id.checkBox1)
-        result = findViewById(R.id.text1)
 
-        male.setOnClickListener() {
-            if (male.isChecked) {
-                result.text = "Your gender is male"
-                female.isChecked = false
-            }else {
-                result.text = "What is your gender?"
+        linearLayout = findViewById(R.id.main)
+        green = findViewById(R.id.green)
+        red = findViewById(R.id.red)
+        yellow = findViewById(R.id.yellow)
+        change = findViewById(R.id.btn)
+
+        change.setOnClickListener() {
+            if (green.isChecked) {
+                linearLayout.setBackgroundColor(Color.GREEN)
+            } else if (red.isChecked) {
+                linearLayout.setBackgroundColor(Color.RED)
+            } else if (yellow.isChecked) {
+                linearLayout.setBackgroundColor(Color.YELLOW)
             }
         }
 
-        female.setOnClickListener() {
-            if (female.isChecked) {
-                result.text = "Your gender is female"
-                male.isChecked = false
-            } else {
-                result.text = "What is your gender?"
-            }
-        }
+//        male = findViewById(R.id.checkBox2)
+//        female = findViewById(R.id.checkBox1)
+//        result = findViewById(R.id.text1)
+//
+//        male.setOnClickListener() {
+//            if (male.isChecked) {
+//                result.text = "Your gender is male"
+//                female.isChecked = false
+//            }else {
+//                result.text = "What is your gender?"
+//            }
+//        }
+//
+//        female.setOnClickListener() {
+//            if (female.isChecked) {
+//                result.text = "Your gender is female"
+//                male.isChecked = false
+//            } else {
+//                result.text = "What is your gender?"
+//            }
+//        }
 //        name = findViewById(R.id.editTextName)
 //        ok = findViewById(R.id.ok)
 //        result = findViewById(R.id.result)
